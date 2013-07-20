@@ -1,0 +1,101 @@
+﻿@model Fullback.WebHost.Models.MailItemViewModel
+
+@*
+
+
+@using (Html.BeginForm("SortPageAndFilter", "Products", FormMethod.Get)) { 
+    <fieldset class="filtering">
+        <legend>Filter Product Results</legend>
+        <div>
+            <b>Show Products In:</b>
+            @Html.DropDownListFor(model => model.CategoryId, Model.CategoryList, "-- All Categories --") 
+            
+            <b>Minimum Price:</b>
+            $@Html.TextBoxFor(model => model.MinPrice, new { size = 8 })
+
+            <b>Omit Discontinued?</b>
+            @Html.CheckBoxFor(model => model.OmitDiscontinued) 
+
+            @Html.Hidden("sortBy", Model.SortBy)
+            @Html.Hidden("ascending", Model.SortAscending)
+
+            <input type="submit" value="Filter Results" />
+        </div>
+    </fieldset>
+} 
+
+<table class="grid">
+    <tr>
+        <th>@Html.Partial("_SmartLink", Model, new ViewDataDictionary { { "ColumnName", "ProductName" }, { "DisplayName", "Product" } })</th>
+        <th>@Html.Partial("_SmartLink", Model, new ViewDataDictionary { { "ColumnName", "Category.CategoryName" }, { "DisplayName", "Category" } })</th>
+        <th>@Html.Partial("_SmartLink", Model, new ViewDataDictionary { { "ColumnName", "QuantityPerUnit" }, { "DisplayName", "Qty/Unit" } })</th>
+        <th>@Html.Partial("_SmartLink", Model, new ViewDataDictionary { { "ColumnName", "UnitPrice" }, { "DisplayName", "Price" } })</th>
+        <th>@Html.Partial("_SmartLink", Model, new ViewDataDictionary { { "ColumnName", "Discontinued" }, { "DisplayName" , "Discontinued" } })</th>
+    </tr>
+
+    @foreach (var item in Model.Products)
+    { 
+    
+    <tr>
+        <td class="left">@item.ProductName</td>
+        <td class="left">@item.Category.CategoryName</td>
+        <td class="left">@item.QuantityPerUnit</td>
+        <td class="right">@String.Format("{0:C}", item.UnitPrice)</td>
+        <td>
+            @if (item.Discontinued) { 
+                <img src="@Url.Content("~/Content/cancel.png")" alt="Discontinued" title="Discontinued" />
+            } 
+        </td>
+    </tr>
+    
+} 
+    
+    <tr>
+        <td class="pager" colspan="5">
+            @Html.Partial("_Pager", Model)
+        </td>
+    </tr>
+        
+</table>
+*@
+
+<h1>Mail Item Management</h1>
+
+<table class="table table-bordered table-striped table-highlight">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Subject)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.SenderName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.MailedTo)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.CreationTime)
+        </th>
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model.MailItems)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Subject)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.SenderName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.MailedTo)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.CreationTime)
+            </td>
+            <td>
+                @Html.ActionLink("Details", "Details", new { id = item.MailItemID })
+            </td>
+        </tr>
+    }
+</table>

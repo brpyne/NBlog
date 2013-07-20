@@ -1,0 +1,65 @@
+﻿<!doctype html>
+<!--[if lt IE 7]> <html class="no-js lt-ie9 lt-ie8 lt-ie7" lang="en"> <![endif]-->
+<!--[if IE 7]>    <html class="no-js lt-ie9 lt-ie8" lang="en"> <![endif]-->
+<!--[if IE 8]>    <html class="no-js lt-ie9" lang="en"> <![endif]-->
+<!--[if gt IE 8]> <html class="no-js" lang="en"> <![endif]-->
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <title>Fullback | @ViewBag.Title</title>
+    <link href="~/favicon.ico" rel="shortcut icon" type="image/x-icon" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, CurrentUser-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+
+    <link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Open+Sans:400,600,800">
+    @Styles.Render("~/Content/template")
+    @RenderSection("styles", required: false)
+    @Scripts.Render("~/bundles/modernizr")
+    @Scripts.Render("~/bundles/jquery")
+</head>
+<body>
+    <div id="wrapper">
+
+        <div id="topbar">
+            @Html.Partial("_Topbar")
+        </div>
+
+        <div id="header">
+            <div class="container">
+                <div id="TextRotator" class="pull-right">
+                    <p><span id="rotate"></span>  |  <a href="#">View All 90Ks</a></p>
+                </div>
+                @Html.ActionLink("Dashboard Admin", "Index",
+                    new { Area = "", Controller = "Home" },
+                    new { @class = "brand" })
+                <a href="javascript:;" class="btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+                    <i class="icon-reorder"></i>
+                </a>
+                @Html.Partial("_Navigation")
+            </div>
+        </div>
+
+        <div id="masthead">
+            <div class="container">
+                <div class="masthead-pad">
+                    <div class="masthead-text span7">
+                        @RenderSection("masthead", false)
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div id="content">
+            <div class="container">
+                @RenderBody()
+            </div>
+        </div>
+    </div>
+    <div id="footer">
+        @Html.Partial("_Footer")
+    </div>
+    
+    @Scripts.Render("~/bundles/js")
+    @RenderSection("scripts", required: false)
+</body>
+</html>

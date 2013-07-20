@@ -1,0 +1,13 @@
+﻿#external-events .btn {
+    text-align: left;
+}
+
+#external-events div {
+    margin: 10px auto;
+    cursor: pointer;
+}
+
+#external-events p input {
+    margin: 0;
+    vertical-align: middle;
+}

@@ -1,0 +1,44 @@
+﻿@model Fullback.WebHost.Models.MailItemViewModel
+
+<div class="pull-right">
+    @Html.ActionLink("Back To List", "Index", "MailItem", new { @class = "btn btn-primary" })
+    @Html.ActionLink("Generate Base Alert", "Index", "BaseAlert", new { @class = "btn btn-inverse" })
+</div>
+
+<h2>Mail Item Details</h2>
+<div class="form-horizontal">
+    <fieldset>
+        <legend>@Html.DisplayFor(model => model.Subject)</legend>
+
+        <div class="span11">
+            <table class="table table-striped">
+                <tr>
+                    <th>@Html.LabelFor(model => model.SenderName)</th>
+                    <th>@Html.LabelFor(model => model.SenderEmailAddress)</th>
+                    <th>@Html.LabelFor(model => model.MailedTo)</th>
+                </tr>
+                <tr>
+                    <td>@Html.DisplayFor(model => model.SenderName)</td>
+                    <td>@Html.DisplayFor(model => model.SenderEmailAddress)</td>
+                    <td>@Html.DisplayFor(model => model.MailedTo)</td>
+                </tr>
+            </table>
+
+            <div class="row" style="overflow: hidden">
+                <p class="span11" style="overflow:hidden">@Html.DisplayFor(model => model.Body)</p>
+            </div>
+
+            <div class="row">
+                <div class="display-label">
+                    @Html.DisplayNameFor(model => model.EntryID)
+                </div>
+                <div class="display-field">
+                    @Html.DisplayFor(model => model.EntryID)
+                </div>
+            </div>
+        </div>
+    </fieldset>
+    <p>
+        @Html.ActionLink("Back to List", "Index")
+    </p>
+</div>

@@ -1,0 +1,52 @@
+﻿@using Fullback.WebHost.Extensions
+
+
+<div class="nav-collapse">
+    <ul id="main-nav" class="nav pull-right">
+        <li class="@Html.NavItemClass(false, "Home")">
+            @Html.NavItemLink("icon-home", "Index", "Index", "Home")
+        </li>
+        <li class="@Html.NavItemClass(false, "Chat")">
+            <a href="http://qchat/#/rooms/LoansPlatform" target="_blank"><i class="icon-comment"></i></a>
+        </li>
+        <li class="@Html.NavItemClass(true, "Documentation")">
+            @Html.DropdownLink("Documentation", "icon-question-sign", "Index", "Documentation")
+            <ul class="dropdown-menu">
+                <li>@Html.MenuLink("FAQ", "FAQ", "Documentation")</li>
+                <li>@Html.MenuLink("Guides", "Guides", "Documentation")</li>
+                <li>@Html.MenuLink("Teams", "Teams", "Documentation")</li>
+            </ul>
+        </li>
+        <li class="@Html.NavItemClass(true, "Servers")">
+            @Html.DropdownLink("Reporting", "icon-list", "Index", "Servers")
+            <ul class="dropdown-menu">
+                <li class="dropdown-submenu"><a href="#">Teams</a>
+                    <ul class="dropdown-menu">
+                        <li>@Html.ActionLink("Carbon", "Statistics", new{ Controller="Team", id=13 })</li>
+                        <li>@Html.ActionLink("Centro", "Statistics", new{ Controller="Team", id=12 })</li>
+                        <li>@Html.ActionLink("Skynet", "Statistics", new{ Controller="Team", id=10 })</li>
+                    </ul>
+                </li>
+                @*
+                <li>@Html.MenuLink("Servers", "Index", "Servers")</li>
+                <li>@Html.MenuLink("Escalation Procedures", "Index", "EscalationProcedures")</li>
+                *@
+            </ul>
+        </li>
+        <li class="@Html.NavItemClass(true, "MailItems")">
+            @Html.DropdownLink("Bug Tracker", "icon-fire", "Index", "Servers")
+            <ul class="dropdown-menu">
+                <li>@Html.MenuLink("All Mail Items", "Index", "MailItems")</li>
+                <li>@Html.MenuLink("Centro", "Team", "MailItems", new {id = 12})</li>
+                <li>@Html.MenuLink("Carbon", "Team", "MailItems", new {id = 13})</li>
+                <li>@Html.MenuLink("Skynet", "Team", "MailItems", new {id = 10})</li>
+            </ul>
+        </li>
+        <li class="@Html.NavItemClass(true, "Scheduling")">
+            @Html.DropdownLink("Scheduling", "icon-calendar", "Schedule", "OnCall")
+            <ul class="dropdown-menu">
+                <li>@Html.MenuLink("Scheduling", "Schedule", "OnCall")</li>
+            </ul>
+        </li>
+    </ul>
+</div>

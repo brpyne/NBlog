@@ -1,0 +1,69 @@
+﻿@model Fullback.WebHost.Models.UserLogin
+@{
+    ViewBag.Title = "\"Intellectuals solve problems, geniuses prevent them.\"";
+    ViewBag.Description = "- Albert Einstein";
+}
+@section masthead {
+    <h2>@ViewBag.Title</h2>
+    <p>@ViewBag.Description</p>
+}
+<section id="loginForm">
+    @using (Html.BeginForm())
+    {
+        @Html.ValidationSummary(true)
+
+        <div class="account-container login stacked">
+
+            <div class="content clearfix">
+                <h1>Sign In</h1>
+
+                <div class="login-fields">
+
+                    <p>Sign in using your registered account:</p>
+
+                    <div class="field">
+                        <label for="username">Username:</label>
+                        @Html.TextBoxFor(model => model.Username, new { @class = "login username-field" })
+                    </div>
+                    <!-- /field -->
+
+                    <div class="field">
+                        <label for="password">Password:</label>
+                        @Html.PasswordFor(model => model.Password, new { @class = "login password-field" })
+                    </div>
+                    <!-- /password -->
+
+                </div>
+                <!-- /login-fields -->
+
+                <div class="login-actions">
+
+                    <span class="login-checkbox">
+                        <input id="Field" name="Field" type="checkbox" class="field login-checkbox" value="First Choice" tabindex="4" />
+                        <label class="choice" for="Field">Keep me signed in</label>
+                    </span>
+                    @Html.ActionLink("Sign In", "AutoLogin", "Account", 
+                        new { @class = "button btn btn-primary btn-large" })
+                </div>
+                <!-- .actions -->
+
+
+            </div>
+            <!-- /content -->
+
+        </div> <!-- /account-container -->
+
+
+        <!-- Text Under Box -->
+        <div class="login-extra">
+            <br />
+            <br />
+            @Html.ActionLink("Auto Login", "AutoLogin", "Account", new { @class = "btn btn-large" })
+            <br />
+            <br />
+            Don't have an account? Contact Brad Pyne at extension 34539.
+        </div> <!-- /login-extra -->
+    }
+</section>
+
+

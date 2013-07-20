@@ -1,0 +1,24 @@
+﻿@model IEnumerable<Fullback.WebHost.Models.MailItemViewModel>
+
+<table class="table table-bordered table-striped table-highlight">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.SenderName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.MailedTo)
+        </th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.SenderName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.MailedTo)
+            </td>
+        </tr>
+    }
+</table>

@@ -1,0 +1,42 @@
+﻿@section masthead {
+    <h2>@ViewBag.Title</h2>
+    <p>@ViewBag.Description</p>
+}
+<p>View your team's current on call rotation schedule.  You may modify this through the use of the drag and drop buttons below that contain team member names.</p>
+<div class="row">
+    <div id="external-events" class="span3">
+        <h3>Team Members</h3>
+        <label><em>(drag and drop to calendar)</em></label>
+        <div class='btn btn-primary btn-large'><i class="icon-move"></i>&nbsp; Brad Pyne</div>
+        <br />
+        <br />
+        <div class='btn btn-primary btn-large'><i class="icon-move"></i>&nbsp; Ravinder Merugu</div>
+        <br />
+        <br />
+        <div class='btn btn-primary btn-large'><i class="icon-move"></i>&nbsp; Charles Chen</div>
+        <br />
+        <br />
+        <div class='btn btn-primary btn-large'><i class="icon-move"></i>&nbsp; Xulu Zhang</div>
+        <br />
+        <br />
+        <div class='btn btn-primary btn-large'><i class="icon-move"></i>&nbsp; Joe Hagerman</div>
+        <br />
+        <br />
+        <div class='btn btn-primary btn-large'><i class="icon-move"></i>&nbsp; Joanna Flick</div>
+        <br />
+        <br />
+        <div class='btn btn-primary btn-large'><i class="icon-move"></i>&nbsp; Ryan Miller</div>
+    </div>
+
+    <div id="calendar" class="span9"></div>
+
+    <div class="clearfix"></div>
+</div>
+@section styles {
+    @Styles.Render("~/Content/calendar")
+}
+@section scripts {
+    @Scripts.Render("~/bundles/fullcalendar")
+    <script src="~/Scripts/pages/schedule.js"></script>
+    <link href="~/Content/schedule.css" rel="stylesheet" />
+}

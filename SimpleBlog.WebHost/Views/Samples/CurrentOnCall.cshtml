@@ -1,0 +1,18 @@
+﻿@{
+    ViewBag.Title = "CurrentOnCall";
+}
+
+<script type="text/javascript" src="@Url.Content("~/scripts/jquery.unobtrusive-ajax.js")"></script>
+<script src="http://code.jquery.com/jquery-1.9.1.js"></script>
+
+<h2>CurrentOnCall</h2>
+
+@Html.Raw(ViewBag.currentOnCall)
+
+
+
+  <button type="submit"  class="btn btn-large btn-primary btn-block btn-big-block" onclick="location.href='@Url.Action("btnSendTeamEmailCurrent_Click")'">
+       Update Current On Call</button>
+
+ <button type="submit"  class="btn btn-large btn-primary btn-block btn-big-block" onclick="location.href='@Url.Action("btnSendTeamEmailCancel_Click")'">
+      Cancel Current On Call</button>

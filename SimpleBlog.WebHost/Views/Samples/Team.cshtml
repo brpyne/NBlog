@@ -1,0 +1,7 @@
+﻿@model IEnumerable<Fullback.WebHost.Models.TeamMailItemsModel>
+
+<h1>@ViewBag.TeamName Mail Item Frequency</h1>
+<p>Use this page to narrow down the alerts causing the most noise.</p>
+
+
+@Html.Partial("Lists/_TeamMailItems", Model)

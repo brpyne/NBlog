@@ -1,0 +1,10 @@
+﻿@model int
+
+<div class="btn-group">
+    <a href="#" class="btn dropdown-toggle" data-toggle="dropdown">Actions <span class="caret"></span></a>
+    <ul class="dropdown-menu">
+        <li>@Html.ActionLink("Edit", "Edit", new { id= Model})</li>
+        <li>@Html.ActionLink("Details", "Details", new { id = Model })</li>
+        <li>@Html.ActionLink("Delete", "Delete", new { id = Model })</li>
+    </ul>
+</div>

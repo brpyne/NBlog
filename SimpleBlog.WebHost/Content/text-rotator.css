@@ -1,0 +1,5 @@
+﻿#TextRotator { padding-top: 10px;text-align: right; }
+#TextRotator p, #TextRotator a {
+    color: #FFF;
+}
+#TextRotator a { text-decoration: underline; }

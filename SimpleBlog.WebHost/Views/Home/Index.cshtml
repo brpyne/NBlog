@@ -1,0 +1,74 @@
+﻿@using Fullback.ServiceModel.Models
+@model Fullback.WebHost.Models.HomeDashboardModel
+
+<script src="~/Scripts/Highcharts-3.0.1/js/highcharts.js"> </script>
+<div class="row">
+    <div class="span12">
+        @Model.LineChart
+    </div>
+</div>
+<div class="row">
+    <div class="span4">
+        <h3>Dashboard</h3>
+        <p>View the alert count broken down by team over the course of today.</p>
+        <table class="table stat-table">
+            <tbody>
+                @foreach (Statistic s in Model.TodaysPerformance)
+                {
+                    <tr>
+                        <td class="value">@s.Value</td>
+                        <td class="full">@s.Name</td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+    <div class="span8">
+        <h3 class="title">Team Breakdown</h3>
+        @Model.PieChart
+    </div>
+    <!--
+        <div class="span4">
+            <h3 class="title">Recent Alerts</h3>
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th>Subject</th>
+                        <th>Team</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td class="full"><a href="#">Parse To Lead Failed</a></td>
+                        <td class="who">Centro</td>
+                    </tr>
+
+                    <tr>
+                        <td class="full"><a href="#">BBQ SQL Exception</a></td>
+                        <td class="who">Carbon</td>
+                    </tr>
+                    <tr>
+                        <td class="full"><a href="#">Fee Service Failure</a></td>
+                        <td class="who">Centro</td>
+                    </tr>
+                    <tr>
+                        <td class="full"><a href="#">Onbase Request Failed, Throttle Limit Reached</a></td>
+                        <td class="who">Skynet</td>
+                    </tr>
+                    <tr>
+                        <td class="full"><a href="#">SE Dedup Invalid</a></td>
+                        <td class="who">Centro</td>
+                    </tr>
+                    <tr>
+                        <td class="full"><a href="#">Unknown Element in Onbase Response</a></td>
+                        <td class="who">Skynet</td>
+                    </tr>
+                    <tr>
+                        <td class="full"><a href="#">QLMS Portal Login Failed</a></td>
+                        <td class="who">Carbon</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+        -->
+</div>

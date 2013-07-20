@@ -1,0 +1,17 @@
+﻿@model System.Web.Mvc.HandleErrorInfo
+
+<div class="error-container">
+
+    <h1>Oops!</h1>
+
+    <h2>404 Not Found</h2>
+
+    <div class="error-details">
+        Sorry, an error has occured, Requested page not found!
+    </div>
+
+    <div class="error-actions">
+        @Html.ActionLink("Back to Dashboard", "Index", "Home", new { @class="btn btn-large btn-primary" })
+    </div>
+
+</div>
